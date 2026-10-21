@@ -1,4 +1,6 @@
-#define _Addr int
+/* as GCC for ILP32: size_t, ssize_t and ptrdiff_t are long based,
+ * intptr_t and uintptr_t are int (defined below, before the generic ones) */
+#define _Addr long
 #define _Int64 long long
 #define _Reg long long
 
@@ -14,6 +16,9 @@
 TYPEDEF unsigned wchar_t;
 #endif
 TYPEDEF unsigned wint_t;
+
+TYPEDEF int intptr_t;
+TYPEDEF unsigned int uintptr_t;
 
 TYPEDEF int blksize_t;
 TYPEDEF unsigned int nlink_t;
