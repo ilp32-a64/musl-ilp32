@@ -89,3 +89,11 @@ static inline long __syscall6(long n, long a, long b, long c, long d, long e, lo
 #define VDSO_CGT32_VER "LINUX_4.12"
 #define VDSO_CGT_SYM "__kernel_clock_gettime64"
 #define VDSO_CGT_VER "LINUX_4.12"
+
+/* The time32 and stat64 system calls are not in bits/syscall.h (their
+ * types do not match the 64-bit time_t), as for riscv32; only
+ * settimeofday_time32 is, under its arm name, for callers that set just the
+ * timezone (busybox hwclock). clock_nanosleep.c still names SYS_nanosleep in
+ * its fallback for kernels without the time64 calls, which ILP32 kernels
+ * always have; it is never reached. */
+#define SYS_nanosleep 101
