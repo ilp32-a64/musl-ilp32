@@ -48,7 +48,7 @@ check out `ilp32-1.2.5` there: this default branch has no source.
 - **Security features**: pointer authentication (clang `pac-ret`) needs no musl
   change; unwinding through signed frames (C++ exceptions) needs the libgcc fix
   that openwrt-ilp32 carries (patch 990) and the test-ilp32 toolchain will get.
-  BTI is not supported yet ([issue](https://github.com/ilp32-a64/musl-ilp32/issues)).
+  BTI is not supported yet ([issue #1](https://github.com/ilp32-a64/musl-ilp32/issues/1)).
 - **Testing**: in QEMU, its own tests pass; libc-test passes 453 of 480, and
   the other 27 also fail with the LP64 musl.
 
